@@ -3,4 +3,4 @@ from django.apps import AppConfig
 
 class AppcitasmedicasConfig(AppConfig):
     default_auto_field = 'django.db.models.BigAutoField'
-    name = 'appcitasmedicas'
+    name = 'modules.appcitasmedicas'

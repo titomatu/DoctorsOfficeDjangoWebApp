@@ -4,11 +4,13 @@ from django.db import models
 
 class Paciente(models.Model):
     id = models.PositiveSmallIntegerField(primary_key=True, null=False)
+    lista_tipo = [('CC', 'Cédula de Ciudadanía'), ('CE', 'Cédula de Extrangería'), ('PA', 'Pasaporte'), ('PE', 'Permiso de Permanencia'), ('RC', 'Registro Civil'), ('TI', 'Identidad')]
+    tipo_id= models.CharField(max_length=2,  null=True, choices=lista_tipo)
     nombres= models.CharField(max_length=64,  null=False)
     apellidos = models.CharField(max_length=64, null=False)
     direccion = models.CharField(max_length=64, null=True)
     telefonos = models.CharField(max_length=20, null=True)
-    email = models.CharField(max_length=64, null=True)
+    email = models.EmailField(max_length=254, null=True)
     password = models.CharField(max_length=8, null=False) 
 
     def __str__(self):
@@ -19,9 +21,9 @@ class Medico(models.Model):
     id = models.PositiveSmallIntegerField(primary_key=True, null=False)
     nombres = models.CharField(max_length=64,  null=False)
     apellidos = models.CharField(max_length=64, null=False)
-    direccion = models.CharField(max_length=64, null=True)
+    direccion = models.CharField(max_length=64,null=True)
     telefonos = models.CharField(max_length=20, null=True)
-    email = models.CharField(max_length=64, null=True)
+    email = models.EmailField(max_length=254, null=True)
     especialidad = models.CharField(max_length=64, null=True)
     password = models.CharField(max_length=8, null=False) 
 
@@ -30,7 +32,7 @@ class Medico(models.Model):
 
 class Disponibilidad(models.Model):
     id = models.PositiveSmallIntegerField(primary_key=True, null=False)
-    medico = medico = models.ForeignKey(Medico, on_delete=models.CASCADE, null=False)
+    medico = models.ForeignKey(Medico, on_delete=models.CASCADE, null=False)
     fecha = models.DateField(null= True)
     hora = models.TimeField(null= True)
 
@@ -42,7 +44,7 @@ class Cita(models.Model):
     disponibilidad = models.ForeignKey(Disponibilidad, on_delete=models.CASCADE, null=False)
     paciente = models.ForeignKey(Paciente, on_delete=models.CASCADE)
     lista_cancela = [('S', 'Si'), ('N', 'No')]
-    cancelada = models.TextField(max_length=1, null=False, choices=lista_cancela)
+    cancelada = models.CharField(max_length=1, null=False, choices=lista_cancela)
     hora_cancelada = models.TimeField(null= True)
 
     def __str__(self):

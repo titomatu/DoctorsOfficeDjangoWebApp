@@ -31,7 +31,7 @@ class Medico(models.Model):
         return f"{self.nombres} - {self.apellidos}"
 
 class Disponibilidad(models.Model):
-    id = models.PositiveSmallIntegerField(primary_key=True, null=False)
+    id = models.AutoField(primary_key=True, null=False)
     medico = models.ForeignKey(Medico, on_delete=models.PROTECT, null=False)
     fecha = models.DateField(null= True)
     hora = models.TimeField(null= True)
@@ -40,7 +40,7 @@ class Disponibilidad(models.Model):
         return f"{self.medico} - {self.fecha} - {self.hora}"
 
 class Cita(models.Model):
-    id = models.PositiveSmallIntegerField(primary_key=True, null=False)
+    id = models.AutoField(primary_key=True, null=False)
     disponibilidad = models.ForeignKey(Disponibilidad, on_delete=models.PROTECT, null=False)
     paciente = models.ForeignKey(Paciente, on_delete=models.CASCADE)
     lista_cancela = [('S', 'Si'), ('N', 'No')]

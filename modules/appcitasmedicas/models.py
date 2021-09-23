@@ -32,7 +32,7 @@ class Medico(models.Model):
 
 class Disponibilidad(models.Model):
     id = models.AutoField(primary_key=True, null=False)
-    medico = models.ForeignKey(Medico, on_delete=models.PROTECT, null=False)
+    medico = models.ForeignKey(Medico, on_delete=models.CASCADE, null=False)
     fecha = models.DateField(null= True)
     hora = models.TimeField(null= True)
 
@@ -41,7 +41,7 @@ class Disponibilidad(models.Model):
 
 class Cita(models.Model):
     id = models.AutoField(primary_key=True, null=False)
-    disponibilidad = models.ForeignKey(Disponibilidad, on_delete=models.PROTECT, null=False)
+    disponibilidad = models.ForeignKey(Disponibilidad, on_delete=models.CASCADE, null=False)
     paciente = models.ForeignKey(Paciente, on_delete=models.CASCADE)
     lista_cancela = [('S', 'Si'), ('N', 'No')]
     cancelada = models.CharField(max_length=1, null=False, choices=lista_cancela, default='N', blank=False)

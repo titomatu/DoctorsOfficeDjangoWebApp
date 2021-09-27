@@ -10,21 +10,21 @@
 
 <div class="container pt-5">
 
-{{mensaje}}
-
- <form action="/autenticar/" method="POST">{% csrf_token %}
+ <form action="/logout/" method="POST">{% csrf_token %}
 
   <div class="form-group">
-    <label for="exampleInputEmail1">ID Paciente</label>
-    <input type="text" class="form-control" id="username" name="username" aria-describedby="emailHelp">
+    {% if 'id_paciente' in request.session %}
+      <p>
+        Hola! {{paciente.nombres}}
+      </p>
+    {% endif %}  
   </div>
 
   <div class="form-group">
-    <label for="exampleInputPassword1">Password</label>
-    <input type="password" class="form-control" id="password" name="password">
+    
   </div>
 
-  <button type="submit" class="btn btn-primary">Ingresar</button>
+  <button type="submit" class="btn btn-primary">Salir</button>
 </form>
 
 </div>

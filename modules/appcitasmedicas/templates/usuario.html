@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Usuario</title>
+
+    <!-- Styles -->
+    <link  rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@4.6.0/dist/css/bootstrap.min.css" integrity="sha384-B0vP5xmATw1+K9KRQjQERJvTumQW0nPEzvF6L/Z6nronJ3oUOFUFpCjEUQouq2+l" crossorigin="anonymous" />
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/css/swiper.css" />
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Ramabhadra&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="../static/css/styles.css">
+</head>
+<body class="usuario">
+    <div class="wrapper">
+
+        <!-- Header -->
+        <div class="nav">
+            <div class="logo">
+                <a href="/"><img src="../static/img/logo.png" alt="Medical" /></a>
+            </div>
+        </div>
+        <!-- Content -->
+        <div class="content">
+            <!-- Img Lateral -->
+            <div class="img-lateral">
+
+            </div>
+            <!-- Contenido Usuario -->
+            <div>
+                <!-- Contenido inicial-->
+                <div id="box-inicial" class="box-contenido-usuario">
+                    <div class="cont-usuario">
+                        <form>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Fecha</label>
+                                <input type="date" class="form-control" id="nombreUsuario" aria-describedby="emailHelp"/>
+                            </div>
+
+                            <div class="form-group">
+                                <label for="exampleInputPassword1">Ciudad</label>
+                                <input type="text" class="form-control" id="passwordUsuario" />
+                            </div>
+
+                            <button type="submit" class="btn btn-primary btn-enviar">Ingresar</button>
+                        </form>
+                    </div>
+                </div>
+                
+                <!-- Contenido Agendar Cita -->
+                <div id="box-agendar" class="box-contenido-usuario"></div>
+                
+                <!-- Contenido Cancelar Cita -->
+                <div id="box-cancelar" class="box-contenido-usuario"></div>
+                
+                <!-- Contenido Consultar Cita -->
+                <div id="box-consultar" class="box-contenido-usuario"></div>
+            </div>
+        </div>
+
+    </div>
+
+    
+    <!-- Scripts -->
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.3.1/jquery.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/js/swiper.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
+    <script src="../static/js/custom.js"></script>
+</body>
+</html>

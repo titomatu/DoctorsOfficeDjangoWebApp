@@ -266,13 +266,19 @@ h1#exampleModalLabel {
     font-size: 40px;
     right: 0;
 }
-
+.error {
+    display: none;
+}
 button.btn-enviar {
     background-color: #3e78a0;
     display: block;
     margin: 0 auto;
     font-family: 'Ramabhadra', sans-serif;
 }  
+.error {
+    display: none;
+}
+
 
 /*******************************************************
         USUARIO

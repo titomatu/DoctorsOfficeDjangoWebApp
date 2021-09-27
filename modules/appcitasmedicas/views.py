@@ -5,3 +5,7 @@ from django.http.response import HttpResponse
 def home(request):
 
     return render(request, 'home.html')
+    
+def usuario(request):
+
+    return render(request, 'usuario.html')

@@ -39,3 +39,8 @@ def logout(request):
         pass
 
     return render(request, 'home.html')
+    return render(request, 'home.html')
+    
+def usuario(request):
+
+    return render(request, 'usuario.html')

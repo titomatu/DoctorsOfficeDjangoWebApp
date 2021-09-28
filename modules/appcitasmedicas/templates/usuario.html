@@ -12,30 +12,67 @@
     <link rel="preconnect" href="https://fonts.googleapis.com">
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
-    <link href="https://fonts.googleapis.com/css2?family=Ramabhadra&display=swap" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="../static/css/styles.css">
 </head>
 <body class="usuario">
     <div class="wrapper">
-
+        
         <!-- Header -->
         <div class="nav">
             <div class="logo">
                 <a href="/"><img src="../static/img/logo.png" alt="Medical" /></a>
             </div>
+            <!-- Menu -->
+            <div class="menu-superior" id="navbar">
+                <ul class="navbar-nav mr-auto">
+                    <li class="menu-item">
+                        <p href="" class="item-solicitar">
+                            <img src="../static/img/agendar-cita.png" class="icon-menu" />
+                            <span class="txt-link">Agendar cita</span>
+                        </p>
+                    </li>
+                    <li class="menu-item">
+                        <p href="" class="item-consultar">
+                            <img src="../static/img/consultar-cita.png" class="icon-menu" />
+                            <span class="txt-link">Consultar citas</span>
+                        </p>
+                    </li>
+                    <li class="menu-item">
+                        <p href="" class="item-cancelar">
+                            <img src="../static/img/cancelar-cita.png" class="icon-menu" />
+                            <span class="txt-link">Cancelar citas</span>
+                        </p>
+                    </li>
+                </ul>
+            </div>
         </div>
+        
+        
         <!-- Content -->
         <div class="content">
             <!-- Img Lateral -->
-            <div class="img-lateral">
-
+            <div class="col-user col-left cont-img-lateral">
+                <img class="img-lateral" src="../static/img/img-usuario.png">
             </div>
             <!-- Contenido Usuario -->
-            <div>
+            <div class="col-user col-right">
                 <!-- Contenido inicial-->
                 <div id="box-inicial" class="box-contenido-usuario">
                     <div class="cont-usuario">
+                        <h2>Bienvenido</h2>
+                        <p>Aquí podra solicitar, consultar o modificar una cita medica</p>
+                    </div>
+                </div>
+                
+                <!-- Contenido Agendar Cita -->
+                <div id="box-agendar" class="box-contenido-usuario">
+                    <div class="cont-usuario">
                         <form>
+                            <div class="form-group">
+                                <label for="exampleInputEmail1">Cédula de ciudadanía Paciente</label>
+                                <input type="number" class="form-control" id="nombreUsuario" aria-describedby="emailHelp"/>
+                            </div>
                             <div class="form-group">
                                 <label for="exampleInputEmail1">Fecha</label>
                                 <input type="date" class="form-control" id="nombreUsuario" aria-describedby="emailHelp"/>
@@ -46,16 +83,49 @@
                                 <input type="text" class="form-control" id="passwordUsuario" />
                             </div>
 
-                            <button type="submit" class="btn btn-primary btn-enviar">Ingresar</button>
+                            <div class="form-group">
+                                <label for="exampleFormControlSelect1">Médico</label>
+                                <select class="form-control" id="exampleFormControlSelect1">
+                                    <option>Alvaro Catellar</option>
+                                    <option>Elkin Bedoya</option>
+                                    <option>Mauricio Blanco</option>
+                                    <option>Tito Maturana</option>
+                                </select>
+                            </div>
+                            <button type="submit" class="btn btn-primary btn-enviar">Agendar</button>
                         </form>
                     </div>
                 </div>
                 
-                <!-- Contenido Agendar Cita -->
-                <div id="box-agendar" class="box-contenido-usuario"></div>
-                
                 <!-- Contenido Cancelar Cita -->
-                <div id="box-cancelar" class="box-contenido-usuario"></div>
+                <div id="box-cancelar" class="box-contenido-usuario">
+                    <form>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Cédula de ciudadanía Paciente</label>
+                            <input type="date" class="form-control" id="nombreUsuario" aria-describedby="emailHelp"/>
+                        </div>
+                        <div class="form-group">
+                            <label for="exampleInputEmail1">Fecha</label>
+                            <input type="date" class="form-control" id="nombreUsuario" aria-describedby="emailHelp"/>
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleInputPassword1">Ciudad</label>
+                            <input type="text" class="form-control" id="passwordUsuario" />
+                        </div>
+
+                        <div class="form-group">
+                            <label for="exampleFormControlSelect1">Médico</label>
+                            <select class="form-control" id="exampleFormControlSelect1">
+                                <option>Alvaro Catellar</option>
+                                <option>Elkin Bedoya</option>
+                                <option>Mauricio Blanco</option>
+                                <option>Tito Maturana</option>
+                            </select>
+                        </div>
+                        <button type="submit" class="btn btn-primary btn-enviar">Agendar</button>
+                    </form>
+                </div>
                 
                 <!-- Contenido Consultar Cita -->
                 <div id="box-consultar" class="box-contenido-usuario"></div>

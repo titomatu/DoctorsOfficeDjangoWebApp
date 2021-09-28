@@ -39,6 +39,10 @@ def logout(request):
         pass
 
     return render(request, 'home.html')
+<<<<<<< HEAD
+=======
+    return render(request, 'home.html')
+>>>>>>> 3abacb1f49e58db3834bf8b1fd6f7f8b635ca3c9
     
 def usuario(request):
 

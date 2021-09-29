@@ -254,6 +254,8 @@ h1#exampleModalLabel {
     font-family: 'Ramabhadra', sans-serif;
     text-align: center;
     display: block;
+    margin-top: 4%;
+    text-shadow: 0px 0px 8px rgb(0 15 24);
 }
 
 .modal-header .close {
@@ -355,4 +357,50 @@ ul.navbar-nav.mr-auto li.menu-item .icon-menu {
 ul.navbar-nav.mr-auto li.menu-item p {
     margin-bottom: 0;
     cursor: pointer;
+}
+
+/************************************************
+        LOGIN
+************************************************/
+.login {
+    background-image: url(../img/banner-home-2.jpg);
+    background-size: cover;
+}
+.login h1 {
+    font-family: 'Carter One', cursive;
+    text-align: center;
+    display: block;
+    color: #fff;
+}
+.login h2 {
+    font-family: 'Acme', sans-serif;
+    color: #005181;
+}
+.login-body {
+    margin-top: 5%;
+    background-color: #fff;
+    width: 90%;
+    margin-left: auto;
+    margin-right: auto;
+    max-width: 420px;
+    padding: 20px;
+    border-radius: 7px;
+    box-shadow: -1px 2px 19px 0px rgba(0,0,0,0.75);
+    -webkit-box-shadow: -1px 2px 19px 0px rgba(0,0,0,0.75);
+    -moz-box-shadow: -1px 2px 19px 0px rgba(0,0,0,0.75);
+}
+
+.img-login {
+    width: 100px;
+    margin: 0 auto;
+}
+
+label {
+    font-family: 'Acme', sans-serif;
+}
+
+.form-control {
+    font-family: 'Acme', sans-serif;
+    color: #000;
+    border: 1px solid #005181;
 }

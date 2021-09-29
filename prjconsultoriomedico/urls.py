@@ -16,7 +16,10 @@ Including another URLconf
 from modules.appcitasmedicas.views import home
 from modules.appcitasmedicas.views import autenticar
 from modules.appcitasmedicas.views import logout
+from modules.appcitasmedicas.views import login
 from modules.appcitasmedicas.views import usuario
+from modules.appcitasmedicas.views import agendamiento
+from modules.appcitasmedicas.views import consultas
 from django.contrib import admin
 from django.urls import path
 
@@ -25,5 +28,8 @@ urlpatterns = [
     path('', home, name='home'),
     path('autenticar/', autenticar, name='autenticar'),
     path('logout/', logout, name='logout'),
-    path('usuario', usuario, name='usuario')
+    path('login', login, name='login'),
+    path('usuario', usuario, name='usuario'),
+    path('agendamiento', agendamiento, name='agendamiento'),
+    path('consultas', consultas, name='consultas')
 ]

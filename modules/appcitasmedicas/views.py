@@ -13,3 +13,11 @@ def login(request):
 def usuario(request):
 
     return render(request, 'usuario.html')
+
+def agendamiento(request):
+
+    return render(request, 'agendamiento.html')
+    
+def consultas(request):
+
+    return render(request, 'consultas.html')

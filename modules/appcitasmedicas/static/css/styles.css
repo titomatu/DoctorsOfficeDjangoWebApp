@@ -299,6 +299,7 @@ button.btn-enviar {
     display: inline-block;
     width: 48%;
     vertical-align: middle;
+    padding-top: 10%;
 }
 .box-contenido-usuario {
     display: none;
@@ -328,6 +329,61 @@ button.btn-enviar {
 }
 
 /** Menu Interna  **/
+.cont-header {
+    position: absolute;
+    top: 0;
+    width: 100%;
+    left: 0;
+}
+
+.cont-header .logo {
+    width: 160px;
+    background-color: #005181;
+    padding: 10px;
+    border-radius: 12px;
+    position: absolute;
+    left: 2%;
+    top: 12px;
+}
+
+.cont-header .nav {
+    right: 0;
+    left: auto;
+    width: auto;
+    top: 10px;
+}
+
+.cont-header .nav .date-user {
+    display: inline-block;
+}
+
+.cont-header .nav .menu-superior {
+    display: inline-block;
+    width: 110px;
+    position: relative;
+}
+
+
+.item-menu {
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 16px;
+    line-height: 1;
+}
+
+.icon-nav .fa {
+    line-height: normal;
+    font-size: 26px;
+}
+
+.icon-nav {
+    margin-top: 10px;
+}
+
+.cont-header .nav .date-user .icon-user {
+    display: inline-block;
+    width: 60px;
+}
+
 ul.navbar-nav.mr-auto {
     padding: 0;
     margin: 0 0 0 auto;
@@ -359,6 +415,107 @@ ul.navbar-nav.mr-auto li.menu-item p {
     cursor: pointer;
 }
 
+
+.menu-toggle {
+    width: 60px;
+    height: 60px;
+    border-radius: 50%;
+    background-color: #005081;
+    box-shadow: 4px 4px 2px 1px rgba(0, 0, 0, 0.2);
+    position: absolute;
+    z-index: 5;
+    top: 0;
+    right: 30px;
+    display: table;
+    text-align: center;
+}
+.menu-toggle .fa {
+    color: #fff;
+    font-size: 2em;
+    display: table-cell;
+    vertical-align: middle;
+    transition: 0.4s;
+    border: 2px solid #fff;
+    border-radius: 50%;
+}
+.menu-toggle.open .fa {
+    transform: rotate(135deg);
+}
+  
+.btn-app {
+    width: 80px;
+    height: 80px;
+    border-radius: 50%;
+    position: absolute;
+    background-color: #005181;
+    color: #fff;
+    text-align: center;
+}
+.btn-app .fa {
+    line-height: normal;
+}
+  
+.open .btn-app {
+    box-shadow: 4px 4px 2px 1px rgba(0, 0, 0, 0.2);
+}
+  
+.menu-line {
+    position: absolute;
+    z-index: 2;
+    top: 0;
+    right: 10px;
+}
+.menu-line .btn-app {
+    top: 0;
+    right: 0.5em;
+    transition: 0.3s;
+    transition-delay: 0.5s;
+    cursor: pointer;
+    opacity: 0;
+    border: 2px solid #fff;
+}
+.menu-line .btn-app a {
+    color: #fff;
+}
+.menu-line.open .btn-app:nth-of-type(1) {
+    top: 1.25em;
+    opacity: 1;
+}
+.menu-line.open .btn-app:nth-of-type(1) {
+    top: 4.25em;
+    opacity: 1;
+}
+.menu-line.open .btn-app:nth-of-type(2) {
+    top: 9.65em;
+    opacity: 1;
+}
+.menu-line.open .btn-app:nth-of-type(3) {
+    top: 10.25em;
+    opacity: 1;
+}
+
+.btn-logout {
+    display: inline-block;
+    font-family: 'Josefin Sans', sans-serif;
+    color: #fff;
+    padding: 0 20px;
+    font-weight: 700;
+    font-size: 20px;
+}
+
+.box-name-user {
+    display: inline-block;
+}
+
+.box-name-user p {
+    color: #fff;
+    font-family: 'Josefin Sans', sans-serif;
+    font-size: 20px;
+    padding-right: 10px;
+    border-right: 1px solid #fff;
+}
+
+
 /************************************************
         LOGIN
 ************************************************/
@@ -388,11 +545,18 @@ ul.navbar-nav.mr-auto li.menu-item p {
     box-shadow: -1px 2px 19px 0px rgba(0,0,0,0.75);
     -webkit-box-shadow: -1px 2px 19px 0px rgba(0,0,0,0.75);
     -moz-box-shadow: -1px 2px 19px 0px rgba(0,0,0,0.75);
+    position: relative;
+}
+.login form{
+    margin-top: 40px;
 }
 
 .img-login {
-    width: 100px;
+    width: 90px;
     margin: 0 auto;
+    position: absolute;
+    top: 10px;
+    right: 10px;
 }
 
 label {
@@ -403,4 +567,9 @@ label {
     font-family: 'Acme', sans-serif;
     color: #000;
     border: 1px solid #005181;
+}
+p.mns-error {
+    font-weight: 700;
+    color: #e30404;
+    margin-bottom: -20px;
 }

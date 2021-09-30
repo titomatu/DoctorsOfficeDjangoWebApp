@@ -27,7 +27,12 @@ $( document ).ready(function() {
       $( ".item-cancelar" ).click(function() {
         $('.box-contenido-usuario').css('display','none');
           $('#box-cancelar').css('display','block');
-      });
+    });
+
+    $( ".menu-toggle" ).click(function() {
+        $(".menu-line").toggleClass('open');
+        $(".menu-toggle").toggleClass('open');
+    });
          
 });
 

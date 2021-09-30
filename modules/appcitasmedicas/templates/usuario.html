@@ -13,32 +13,47 @@
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Carter+One&display=swap" rel="stylesheet">
     <link href="https://fonts.googleapis.com/css2?family=Josefin+Sans:ital,wght@0,300;0,400;0,500;0,600;0,700;1,400;1,500;1,600;1,700&display=swap" rel="stylesheet">
+    <link href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css" rel="stylesheet">
     <link rel="stylesheet" href="../static/css/styles.css">
 </head>
 <body class="usuario">
     <div class="wrapper">
         
         <!-- Header -->
-        <div class="nav">
+        <div class="cont-header">
             <div class="logo">
                 <a href="/"><img src="../static/img/logo.png" alt="Medical" /></a>
             </div>
-            <!-- Menu -->
-            <div class="menu-superior" id="navbar">
-                <ul class="navbar-nav mr-auto">
-                    <li class="menu-item">
-                        <a href="/agendamiento" class="item-solicitar">
-                            <img src="../static/img/agendar-cita.png" class="icon-menu" />
-                            <span class="txt-link">Agendar cita</span>
-                        </p>
-                    </li>
-                    <li class="menu-item">
-                        <a href="consultas" class="item-consultar">
-                            <img src="../static/img/consultar-cita.png" class="icon-menu" />
-                            <span class="txt-link">Consultar citas</span>
-                        </a>
-                    </li>
-                </ul>
+            <div class="nav">
+                <div class="date-user">
+                    <div class="box-name-user"><p><strong>Bienvenido</strong> <span class="name">Usuario</span></p></div>
+                    <div class="btn-logout">Salir</div>
+                    <img class="icon-user" src="../static/img/icon-user.png" />
+                </div>
+                <!-- Menu -->
+                <div class="menu-superior">
+                    <div class="menu-toggle">
+                        <span class="fa fa-plus"></span>
+                    </div>
+                    <div class="menu-line">
+                        <div class="btn-app">
+                            <a href ="/agendamiento">
+                                <div class="icon-nav">
+                                    <span class="fa fa-calendar"></span>
+                                </div>
+                                <div class="item-menu">Agendar Cita</div>
+                            </a>
+                        </div>
+                        <div class="btn-app">
+                            <a href ="/consultas">
+                                <div class="icon-nav">
+                                    <i class="fa fa-list-alt"></i>
+                                </div>
+                                <div class="item-menu">Consultar</div>
+                            </a>
+                        </div>
+                    </div>
+                </div>
             </div>
         </div>
         

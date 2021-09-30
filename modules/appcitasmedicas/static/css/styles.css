@@ -508,6 +508,9 @@ ul.navbar-nav.mr-auto li.menu-item p {
     font-weight: 700;
     font-size: 20px;
 }
+.btn-logout a{
+    color: #ffffff;
+} 
 
 .box-name-user {
     display: inline-block;

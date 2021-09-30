@@ -1,6 +1,7 @@
 $( document ).ready(function() {
     var ventana_alto = $(window).height();
     $('.swiper-slide').css('height', ventana_alto);
+    $('body').css('min-height', ventana_alto);
 
     
     $('.usuario').css('min-height', ventana_alto);

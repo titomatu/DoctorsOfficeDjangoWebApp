@@ -251,11 +251,14 @@ img {
 }
 
 h1#exampleModalLabel {
-    font-family: 'Ramabhadra', sans-serif;
+    font-family: 'Josefin Sans', sans-serif;
     text-align: center;
     display: block;
     margin-top: 4%;
-    text-shadow: 0px 0px 8px rgb(0 15 24);
+    text-shadow: 0px 0px 8px rgb(1 59 118);
+    color: #fff;
+    font-weight: 500;
+    text-transform: uppercase;
 }
 
 .modal-header .close {
@@ -330,7 +333,7 @@ button.btn-enviar {
 
 /** Menu Interna  **/
 .cont-header {
-    position: absolute;
+    position: relative;
     top: 0;
     width: 100%;
     left: 0;
@@ -341,9 +344,11 @@ button.btn-enviar {
     background-color: #005181;
     padding: 10px;
     border-radius: 12px;
-    position: absolute;
+    position: relative;
     left: 2%;
     top: 12px;
+    display: inline-block;
+    vertical-align: middle;
 }
 
 .cont-header .nav {
@@ -428,6 +433,7 @@ ul.navbar-nav.mr-auto li.menu-item p {
     right: 30px;
     display: table;
     text-align: center;
+    cursor: pointer;
 }
 .menu-toggle .fa {
     color: #fff;
@@ -502,6 +508,9 @@ ul.navbar-nav.mr-auto li.menu-item p {
     font-weight: 700;
     font-size: 20px;
 }
+.btn-logout a{
+    color: #ffffff;
+} 
 
 .box-name-user {
     display: inline-block;
@@ -572,4 +581,116 @@ p.mns-error {
     font-weight: 700;
     color: #e30404;
     margin-bottom: -20px;
+}
+
+/**************************************************
+        Agendamiento
+**************************************************/
+.agendamiento {
+    background-image: url(../img/banner-home-1.jpg);
+    position: relative;
+}
+.agendamiento:before {
+    content: "";
+    background-color: rgb(0 80 129 / 36%);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+
+.content-formulario .img-lateral {
+    width: 48%;
+    display: inline-block;
+    vertical-align: bottom;
+}
+
+.content-formulario .interna-body {
+    width: 50%;
+    display: inline-block;
+    vertical-align: top;
+}
+button.btn.btn-primary.btn-enviar {
+    position: relative;
+}
+
+label {
+    margin-bottom: 0;
+}
+
+.content-formulario .interna-body form {
+    width: 90%;
+    margin: 0 auto;
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 4px;
+    box-shadow: 0px 0px 8px rgb(1 59 118);
+}
+
+/******************************************************
+        Consultar
+*******************************************************/
+.consultar {
+    background-image: url(../img/banner-home-3.jpg);
+    position: relative;
+}
+.consultar:before {
+    content: "";
+    background-color: rgb(0 80 129 / 36%);
+    width: 100%;
+    height: 100%;
+    position: absolute;
+    top: 0;
+    left: 0;
+}
+.title-section {
+    font-family: 'Carter One', cursive;
+    font-size: 3em;
+    text-align: left;
+    color: #fff;
+    margin: 15px;
+    transform: translateY(30px);
+}
+a.volver {
+    display: inline-block;
+    width: 60px;
+    margin-left: 35px;
+    vertical-align: -webkit-baseline-middle;
+    color: #ffffff;
+    position: relative;
+    padding-left: 30px;
+    margin-top: 20px;
+    font-weight: 700;
+    font-family: sans-serif;
+}
+a.volver:hover {
+    text-decoration: none;
+    color: #ffffff;
+}
+.volver i {
+    display: inline-block;
+    position: absolute;
+    left: 0;
+    top: 50%;
+    transform: translateY(-50%);
+    font-size: 24px;
+}
+.volver span {
+    display: inline-block;
+}
+
+.cont-tabla {
+    background-color: #fff;
+    padding: 20px;
+}
+
+.btn-cancelar {
+    background-color: transparent;
+    border-radius: 5px;
+    color: #005181;
+    border: 1px solid #005181;
+    border-style: solid;
+    display: block;
+    margin: 0 auto;
 }

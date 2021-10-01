@@ -1,4 +1,6 @@
+from typing import ContextManager
 from modules.appcitasmedicas.models import Paciente
+from modules.appcitasmedicas.models import Cita
 from django.shortcuts import render
 from django.core.exceptions import ObjectDoesNotExist
 
@@ -53,5 +55,8 @@ def agendamiento(request):
     return render(request, 'agendamiento.html')
     
 def consultas(request):
-
-    return render(request, 'consultas.html')
+    citas = Cita.objects.filter(paciente= request.session['id_paciente'], cancelada = 'N') # creo el querySet 
+    paciente = Paciente.objects.get(id= request.session['id_paciente'])
+    #cita_paciente = Cita.objects.fil.all() () # creo el querySet 
+    context = {"citas":citas,"paciente":paciente} # Creo el contexto
+    return render(request, 'consultas.html', context)

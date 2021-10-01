@@ -26,7 +26,7 @@
             <div class="nav">
                 <div class="date-user">
                     <div class="box-name-user"><p><strong>Bienvenido</strong> <span class="name">{{paciente.nombres}}</span></p></div>
-                    <div class="btn-logout"><a href="/logout/">Salir</a></div>
+                     <div class="btn-logout"><a href="/logout/">Salir</a></div>
                     <img class="icon-user" src="../static/img/icon-user.png" />
                 </div>
                 <!-- Menu -->
@@ -64,37 +64,31 @@
             </div>
             <div class="interna-body">
                 <div class="cont-tabla">
-                    <!-- TABLA Consultas -->
                     <table id="Consultas-citas" class="table">
-                        <!-- HEAD Tablas -->
                         <thead class="thead-dark">
                             <tr>
                             <th scope="col">Fecha</th>
                             <th scope="col">Hora</th>
                             <th scope="col">Doctor</th>
+                            <th scope="col">Especialidad</th>
                             <th scope="col">Cancelar</th>
                             </tr>
                         </thead>
                         <tbody>                            
-                            <!-- BODY Tablas -->
-                            <tr>
-                                <td>1/10/21</td>
-                                <td>Mark</td>
-                                <td>Otto</td>
-                                <td><a class="btn-cancelar"><i class="fa fa-calendar-times-o"></i></a></td>
-                            </tr>
-                            <tr>
-                                <td>2/10/21</td>
-                                <td>Jacob</td>
-                                <td>Thornton</td>
-                                <td><button class="btn-cancelar"><i class="fa fa-calendar-times-o"></i></button></td>
-                            </tr>
-                            <tr>
-                                <td>3/10/21</td>
-                                <td>Larry</td>
-                                <td>the Bird</td>
-                                <td><button class="btn-cancelar"><i class="fa fa-calendar-times-o"></i></button></td>
-                            </tr>
+                            {% if citas %}
+                                {% for cita in citas %}                               
+                                    <tr>
+                                       <td>{{cita.disponibilidad.fecha|date:'Y-m-d'}}</td>
+                                       <td>{{cita.disponibilidad.hora}}</td>
+                                       <td>{{cita.disponibilidad.medico.nombres|title}} 
+                                       {{cita.disponibilidad.medico.apellidos}}</td>
+                                       <td>{{cita.disponibilidad.medico.especialidad|title}}</td>    
+                                       <td><a class="btn-cancelar"><i class="fa fa-calendar-times-o"></i></a></td>
+                                    </tr>
+                                {% endfor %}
+                            {% else %}
+                                <h3>Usted no tiene registro de citas</h3>
+                            {% endif %}                                                        
                         </tbody>
                     </table>
                 </div>

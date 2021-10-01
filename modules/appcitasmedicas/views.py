@@ -58,5 +58,5 @@ def consultas(request):
     citas = Cita.objects.filter(paciente= request.session['id_paciente'], cancelada = 'N') # creo el querySet 
     paciente = Paciente.objects.get(id= request.session['id_paciente'])
     #cita_paciente = Cita.objects.fil.all() () # creo el querySet 
-    context = {"citas":citas,"paciente":paciente} # Creo el contexto
+    context = {"citas":citas,"paciente":paciente} # Creo el contexto para pasarlo a la pagina
     return render(request, 'consultas.html', context)

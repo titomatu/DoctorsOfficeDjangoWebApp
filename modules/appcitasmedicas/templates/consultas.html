@@ -83,7 +83,9 @@
                                        <td>{{cita.disponibilidad.medico.nombres|title}} 
                                        {{cita.disponibilidad.medico.apellidos}}</td>
                                        <td>{{cita.disponibilidad.medico.especialidad|title}}</td>    
-                                       <td><a class="btn-cancelar"><i class="fa fa-calendar-times-o"></i></a></td>
+                                       <td><a href="{% url 'cancelar' cita.id %}" onclick="return confirm('Esta seguro de Cancelar la Cita?');" >Cancelar </a>
+                                       {% comment %}<td><a class="btn-cancelar"><i class="fa fa-calendar-times-o"></i></a>{% endcomment %}  
+                                       </td>
                                     </tr>
                                 {% endfor %}
                             {% else %}

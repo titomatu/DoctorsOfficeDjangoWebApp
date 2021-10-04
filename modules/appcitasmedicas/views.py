@@ -1,7 +1,7 @@
 from typing import ContextManager
 from modules.appcitasmedicas.models import Paciente
 from modules.appcitasmedicas.models import Cita
-from django.shortcuts import render
+from django.shortcuts import render, redirect
 from django.core.exceptions import ObjectDoesNotExist
 
 # Create your views here.
@@ -60,3 +60,9 @@ def consultas(request):
     #cita_paciente = Cita.objects.fil.all() () # creo el querySet 
     context = {"citas":citas,"paciente":paciente} # Creo el contexto para pasarlo a la pagina
     return render(request, 'consultas.html', context)
+
+def cancelar(request, id):
+    citas=Cita.objects.get(id=id)
+    citas.cancelada='S'
+    citas.save()
+    return redirect('consultas')

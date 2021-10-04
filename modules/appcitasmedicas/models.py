@@ -3,7 +3,7 @@ from django.db import models
 # Create your models here.
 
 class Paciente(models.Model):
-    id = models.PositiveSmallIntegerField(primary_key=True, null=False)
+    id = models.PositiveIntegerField(primary_key=True, null=False)
     lista_tipo = [('CC', 'Cédula de Ciudadanía'), ('CE', 'Cédula de Extranjería'), ('PA', 'Pasaporte'), ('PE', 'Permiso de Permanencia'), ('RC', 'Registro Civil'), ('TI', 'Tarjeta de Identidad')]
     tipo_id= models.CharField(max_length=2,  null=True, choices=lista_tipo)
     nombres= models.CharField(max_length=64,  null=False)
@@ -18,7 +18,7 @@ class Paciente(models.Model):
 
 
 class Medico(models.Model):
-    id = models.PositiveSmallIntegerField(primary_key=True, null=False)
+    id = models.PositiveIntegerField(primary_key=True, null=False)
     nombres = models.CharField(max_length=64,  null=False)
     apellidos = models.CharField(max_length=64, null=False)
     direccion = models.CharField(max_length=64,null=True)

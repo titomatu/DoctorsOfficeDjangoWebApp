@@ -5,5 +5,5 @@ from django.contrib import admin
 from modules.appcitasmedicas.models import *
 admin.site.register(Paciente)
 admin.site.register(Medico)
-admin.site.register(Disponibilidad)
 admin.site.register(Cita)
+admin.site.register(CitaHora)

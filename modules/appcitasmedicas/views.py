@@ -1,8 +1,8 @@
 from typing import ContextManager
-from modules.appcitasmedicas.models import Paciente
-from modules.appcitasmedicas.models import Cita
+from modules.appcitasmedicas.models import *
 from django.shortcuts import render, redirect
 from django.core.exceptions import ObjectDoesNotExist
+from django.http import JsonResponse
 
 # Create your views here.
 def home(request):
@@ -22,7 +22,7 @@ def autenticar(request):
         password = request.POST["password"]
 
         paciente = Paciente.objects.get(id=usuario, password=password)
-        print(paciente)
+        
         context = {"paciente" : paciente}
         request.session['id_paciente'] = paciente.id
     
@@ -51,8 +51,11 @@ def usuario(request):
     return render(request, 'usuario.html')
 
 def agendamiento(request):
+    paciente = Paciente.objects.get(id= request.session['id_paciente'])
+    medicos = Medico.objects.all().order_by('apellidos')
 
-    return render(request, 'agendamiento.html')
+    context = {"paciente":paciente, "medicos":medicos}
+    return render(request, 'agendamiento.html', context)
     
 def consultas(request):
     citas = Cita.objects.filter(paciente= request.session['id_paciente'], cancelada = 'N') # creo el querySet 
@@ -66,3 +69,19 @@ def cancelar(request, id):
     citas.cancelada='S'
     citas.save()
     return redirect('consultas')
+
+def horas(request):
+    citas = Cita.objects.filter(medico= request.POST['idmedico'], fecha= request.POST['fechacita'], cancelada = 'N').values('hora')
+    horas = CitaHora.objects.all().exclude(id__in=citas)
+
+    return JsonResponse(list(horas.values('id', 'hora')), safe = False)
+
+def cita(request):
+    cita = Cita()
+    cita.medico = Medico.objects.get(id=request.POST['idmedico'])
+    cita.paciente = Paciente.objects.get(id=request.POST['idpaciente'])
+    cita.hora = CitaHora.objects.get(id=request.POST['hora'])
+    cita.fecha = request.POST['fechacita']
+    cita.save()
+
+    return render(request, 'agendamiento.html')

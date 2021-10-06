@@ -59,7 +59,8 @@ def agendamiento(request):
     return render(request, 'agendamiento.html', context)
     
 def consultas(request):
-    citas = Cita.objects.filter(paciente= request.session['id_paciente'], cancelada = 'N') # creo el querySet 
+    citas = Cita.objects.filter(paciente= request.session['id_paciente'], cancelada = 'N').order_by('-id') # creo el querySet 
+    #[::-1]
     paciente = Paciente.objects.get(id= request.session['id_paciente'])
     #cita_paciente = Cita.objects.fil.all() () # creo el querySet 
     context = {"citas":citas,"paciente":paciente} # Creo el contexto para pasarlo a la pagina
@@ -73,7 +74,7 @@ def cancelar(request, id):
 
 def horas(request):
     citas = Cita.objects.filter(medico= request.POST['idmedico'], fecha= request.POST['fechacita'], cancelada = 'N').values('hora')
-    horas = CitaHora.objects.all().exclude(id__in=citas)
+    horas = CitaHora.objects.all().exclude(id__in=citas).order_by('hora')
 
     return JsonResponse(list(horas.values('id', 'hora')), safe = False)
 

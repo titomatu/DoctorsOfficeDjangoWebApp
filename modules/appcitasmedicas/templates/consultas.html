@@ -78,11 +78,11 @@
                             {% if citas %}
                                 {% for cita in citas %}                               
                                     <tr>
-                                       <td>{{cita.disponibilidad.fecha|date:'Y-m-d'}}</td>
-                                       <td>{{cita.disponibilidad.hora}}</td>
-                                       <td>{{cita.disponibilidad.medico.nombres|title}} 
-                                       {{cita.disponibilidad.medico.apellidos}}</td>
-                                       <td>{{cita.disponibilidad.medico.especialidad|title}}</td>    
+                                       <td>{{cita.fecha|date:'Y-m-d'}}</td>
+                                       <td>{{cita.hora.hora}}</td>
+                                       <td>{{cita.medico.nombres|title}} 
+                                       {{cita.medico.apellidos}}</td>
+                                       <td>{{cita.medico.especialidad|title}}</td>    
                                        {% comment %}<td><a href="{% url 'cancelar' cita.id %}" onclick="return confirm('Esta seguro de Cancelar la Cita?');" >Cancelar </a>{% endcomment %}
                                        {% comment %}<td><a class="btn-cancelar"><i class="fa fa-calendar-times-o"></i></a>{% endcomment %}
                                        {% comment %}<td><div class="btn-cancelar"><i class="fa fa-calendar-times-o"></i><a href="{% url 'cancelar' cita.id %}" onclick="return confirm('Esta seguro de Cancelar la Cita?');" >Cancelar</a></div>{% endcomment %}

@@ -63,46 +63,41 @@
                 <img src="../static/img/img-banner-1.png" class="Iniciar Sesi{on" />
             </div>
             <div class="interna-body">
-                {{mensaje}}
-                <form>
+                <form action="/cita/" method="POST">{% csrf_token %}
                     <div class="form-group">
-                        <label for="exampleInputEmail1">Cédula de ciudadanía Paciente</label>
-                        <input type="number" class="form-control" id="nombreUsuario" aria-describedby="emailHelp"/>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputEmail1">Fecha</label>
-                        <input type="date" class="form-control" id="nombreUsuario" aria-describedby="emailHelp"/>
+                        <label for="exampleInputEmail1">ID Paciente</label>
+                        <input type="number" class="form-control" id="idpaciente" name="idpaciente" aria-describedby="emailHelp" readonly value="{{paciente.id}}"/>
                     </div>
 
                     <div class="form-group">
-                        <label for="hora">Hora</label>
-                        <select class="form-control" id="hora">
-                            <option  value="800">8:00</option>
-                            <option value="900">9:00</option>
-                            <option value="1000">10:00</option>
-                            <option value="1100">11:00</option>
-                            <option value="1200">12:00</option>
-                            <option value="1300">13:00</option>
-                            <option value="1400">14:00</option>
-                            <option value="1500">15:00</option>
-                            <option value="1600">16:00</option>
-                            <option value="1700">17:00</option>
-                        </select>
-                    </div>
-                    <div class="form-group">
-                        <label for="exampleInputPassword1">Ciudad</label>
-                        <input type="text" class="form-control" id="passwordUsuario" />
+                        <label for="exampleInputEmail1">Fecha</label>
+                        <input type="date" class="form-control" id="fechacita" aria-describedby="emailHelp" name="fechacita" required/>
                     </div>
 
                     <div class="form-group">
                         <label for="exampleFormControlSelect1">Médico</label>
-                        <select class="form-control" id="exampleFormControlSelect1">
-                            <option value="Alvaro">Alvaro Catellar</option>
-                            <option value="Elkin">Elkin Bedoya</option>
-                            <option value="Mauricio">Mauricio Blanco</option>
-                            <option value="Tito">Tito Maturana</option>
+                        <select class="form-control" id="idmedico" name="idmedico" required>
+                            <option value="">---------</option>
+                        {% for medico in medicos%}
+                            <option value="{{medico.id}}">{{medico.apellidos}}, {{medico.nombres}}</option>
+                        {% endfor %}
                         </select>
                     </div>
+
+                    <div class="form-group">
+                        <label for="hora">Hora</label>
+                        <select class="form-control" id="hora" name="hora" required>
+                            <option value="">---------</option>
+                        </select>
+                    </div>
+                    <div class="form-group" style="visibility: hidden">
+                        <p id="jqtest"></p>
+                    </div>
+                    <div class="form-group" style="visibility: hidden">
+                        <label for="exampleInputPassword1">Ciudad</label>
+                        <input type="text" class="form-control" id="passwordUsuario" />
+                    </div>
+
                     <button type="submit" class="btn btn-primary btn-enviar">Agendar</button>
                 </form>
             </div>
@@ -115,5 +110,48 @@
     <script src="https://cdnjs.cloudflare.com/ajax/libs/Swiper/4.3.3/js/swiper.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.0.0/js/bootstrap.min.js"></script>
     <script src="../static/js/custom.js"></script>
+    <script type="text/javascript">
+        $(document).ready(
+            function(){
+            $("#jqtest").html("JQuery installed successfully!");
+            }
+        );
+    </script>
+    <!-- script type="text/javascript">
+        $(document).ready(function(){
+            $('#idmedico').change(function() {
+                $("#jqtest").html("Changed date XOXO!");
+            })
+        });
+    </script -->
+    <script type="text/javascript">
+        $(document).ready(function(){
+            $('#idmedico').change(function() {
+                var idmedico=$('#idmedico').val();
+                var fechacita=$('#fechacita').val();
+                $.ajax({
+                    method: "POST",
+                    url: "/horas",
+                    data: {
+                        idmedico: idmedico,
+                        fechacita: fechacita,
+                        csrfmiddlewaretoken: '{{ csrf_token }}'
+                    },
+                    success: function(data) {
+                        console.log(data) // check out how data is structured
+
+                        // Update the coin amount
+                        //$("#jqtest").html("Changed date XOXO! ");
+                        let html_data = '<option value="">---------</option>';
+                        data.forEach(function (data) {
+                            html_data += `<option value="${data.id}">${data.hora}</option>`
+                        });
+                        $("#hora").html(html_data); // replace the contents of the topic input with the data that came from the server
+            
+                    }
+                })
+            })
+        });
+    </script>
 </body>
 </html>

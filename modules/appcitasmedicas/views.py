@@ -18,13 +18,14 @@ def autenticar(request):
 
     #Authenticate user
     try:
-        usuario = request.POST["username"]
-        password = request.POST["password"]
+        if request.method == "POST":
+            usuario = request.POST["username"]
+            password = request.POST["password"]
 
-        paciente = Paciente.objects.get(id=usuario, password=password)
+            paciente = Paciente.objects.get(id=usuario, password=password)
         
-        context = {"paciente" : paciente}
-        request.session['id_paciente'] = paciente.id
+            context = {"paciente" : paciente}
+            request.session['id_paciente'] = paciente.id
     
 
     except ObjectDoesNotExist:
@@ -77,11 +78,12 @@ def horas(request):
     return JsonResponse(list(horas.values('id', 'hora')), safe = False)
 
 def cita(request):
-    cita = Cita()
-    cita.medico = Medico.objects.get(id=request.POST['idmedico'])
-    cita.paciente = Paciente.objects.get(id=request.POST['idpaciente'])
-    cita.hora = CitaHora.objects.get(id=request.POST['hora'])
-    cita.fecha = request.POST['fechacita']
-    cita.save()
+    if request.method == "POST":
+        cita = Cita()
+        cita.medico = Medico.objects.get(id=request.POST['idmedico'])
+        cita.paciente = Paciente.objects.get(id=request.POST['idpaciente'])
+        cita.hora = CitaHora.objects.get(id=request.POST['hora'])
+        cita.fecha = request.POST['fechacita']
+        cita.save()
 
-    return render(request, 'agendamiento.html')
+    return redirect('consultas')

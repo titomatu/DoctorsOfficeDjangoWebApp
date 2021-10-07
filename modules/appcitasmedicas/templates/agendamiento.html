@@ -153,5 +153,26 @@
             })
         });
     </script>
+    <script type="text/javascript">
+        $(document).ready(function () {
+            Date.prototype.ddmmyyyy = function () {
+                var dd = this.getDate().toString();
+                var mm = (this.getMonth() + 1).toString();
+                var yyyy = this.getFullYear().toString();
+                //return (dd[1] ? dd : "0" + dd[0]) + "/" + (mm[1] ? mm : "0" + mm[0]) + "/" + yyyy;
+                return yyyy + "-" + (mm[1] ? mm : "0" + mm[0]) + "-" + (dd[1] ? dd : "0" + dd[0]);
+            };
+            //$("#fechacita").datepicker({ dateFormat: "dd-mm-yy" });
+            $("#fechacita").on('change', function () {
+                var selectedDate = $(this).val();
+                var todaysDate = new Date().ddmmyyyy();
+                //alert(selectedDate + '<===>' + todaysDate);
+                if (selectedDate <= todaysDate) {
+                    alert('La fecha seleccionada no puede ser inferior o igual a la actual');
+                    $(this).val('');
+                }
+            });
+        });            
+    </script>
 </body>
 </html>

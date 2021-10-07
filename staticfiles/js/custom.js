@@ -34,6 +34,9 @@ $( document ).ready(function() {
         $(".menu-line").toggleClass('open');
         $(".menu-toggle").toggleClass('open');
     });
+
+    $( "#datepicker" ).datepicker();
+
          
 });
 

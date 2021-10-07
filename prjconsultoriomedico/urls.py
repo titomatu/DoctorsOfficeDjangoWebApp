@@ -26,6 +26,7 @@ urlpatterns = [
     path('usuario', usuario, name='usuario'),
     path('agendamiento', agendamiento, name='agendamiento'),
     path('horas', horas, name='horas'),
+    path('medicos', medicos, name='medicos'),
     path('cita/', cita, name='cita'),
     path('consultas', consultas, name='consultas'),
     path('cancelar/<int:id>/',cancelar,name='cancelar')

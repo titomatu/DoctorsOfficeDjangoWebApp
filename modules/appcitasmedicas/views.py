@@ -53,10 +53,14 @@ def usuario(request):
 
 def agendamiento(request):
     paciente = Paciente.objects.get(id= request.session['id_paciente'])
+
+    context = {"paciente":paciente}
+    return render(request, 'agendamiento.html', context)
+
+def medicos(request):
     medicos = Medico.objects.all().order_by('apellidos')
 
-    context = {"paciente":paciente, "medicos":medicos}
-    return render(request, 'agendamiento.html', context)
+    return JsonResponse(list(medicos.values('id', 'apellidos', 'nombres')), safe = False)
     
 def consultas(request):
     citas = Cita.objects.filter(paciente= request.session['id_paciente'], cancelada = 'N').order_by('-id') # creo el querySet 

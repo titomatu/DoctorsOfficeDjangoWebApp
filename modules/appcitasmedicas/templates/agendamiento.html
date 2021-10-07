@@ -78,9 +78,6 @@
                         <label for="exampleFormControlSelect1">Médico</label>
                         <select class="form-control" id="idmedico" name="idmedico" required>
                             <option value="">---------</option>
-                        {% for medico in medicos%}
-                            <option value="{{medico.id}}">{{medico.apellidos}}, {{medico.nombres}}</option>
-                        {% endfor %}
                         </select>
                     </div>
 
@@ -170,6 +167,26 @@
                 if (selectedDate <= todaysDate) {
                     alert('La fecha seleccionada no puede ser inferior o igual a la actual');
                     $(this).val('');
+                } else {
+                    $.ajax({
+                        method: "POST",
+                        url: "/medicos",
+                        data: {
+                            csrfmiddlewaretoken: '{{ csrf_token }}'
+                        },
+                        success: function(data) {
+                            console.log(data) // check out how data is structured
+
+                            // Update the coin amount
+                            //$("#jqtest").html("Changed date XOXO! ");
+                            let html_data = '<option value="">---------</option>';
+                            data.forEach(function (data) {
+                                html_data += `<option value="${data.id}">${data.apellidos}, ${data.nombres}</option>`
+                            });
+                            $("#idmedico").html(html_data); // replace the contents of the topic input with the data that came from the server
+                
+                        }
+                    })
                 }
             });
         });            

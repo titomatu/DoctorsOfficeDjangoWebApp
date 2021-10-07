@@ -251,7 +251,7 @@ img {
 }
 
 h1#exampleModalLabel {
-    font-family: 'Josefin Sans', sans-serif;
+    font-family: 'Acme', sans-serif;
     text-align: center;
     display: block;
     margin-top: 4%;
@@ -302,7 +302,26 @@ button.btn-enviar {
     display: inline-block;
     width: 48%;
     vertical-align: middle;
-    padding-top: 10%;
+    padding-top: 4%;
+}
+.col-user img.img-lateral {
+    width: 100%;
+    max-width: 480px;
+    display: block;
+    margin: 0 auto;
+}
+
+.col-user.col-right {
+    padding-top: 0;
+}
+
+.btn-app:hover {
+    background-color: #3373a1;
+    transform: scale(1.2);
+}
+
+.menu-line .btn-app a:hover {
+    text-decoration: none;
 }
 .box-contenido-usuario {
     display: none;
@@ -377,7 +396,8 @@ button.btn-enviar {
 
 .icon-nav .fa {
     line-height: normal;
-    font-size: 26px;
+    font-size: 22px;
+    margin-bottom: 6px;
 }
 
 .icon-nav {
@@ -492,7 +512,7 @@ ul.navbar-nav.mr-auto li.menu-item p {
     opacity: 1;
 }
 .menu-line.open .btn-app:nth-of-type(2) {
-    top: 9.65em;
+    top: 10em;
     opacity: 1;
 }
 .menu-line.open .btn-app:nth-of-type(3) {
@@ -513,7 +533,7 @@ ul.navbar-nav.mr-auto li.menu-item p {
 } 
 
 .box-name-user {
-    display: inline-block;
+    display: block;
 }
 
 .box-name-user p {
@@ -541,6 +561,7 @@ ul.navbar-nav.mr-auto li.menu-item p {
 .login h2 {
     font-family: 'Acme', sans-serif;
     color: #005181;
+    margin-bottom: 50px;
 }
 .login-body {
     margin-top: 5%;
@@ -580,7 +601,10 @@ label {
 p.mns-error {
     font-weight: 700;
     color: #e30404;
-    margin-bottom: -20px;
+    margin-bottom: -30px;
+    margin-top: -30px;
+    width: 100%;
+    max-width: 260px;
 }
 
 /**************************************************
@@ -601,13 +625,18 @@ p.mns-error {
 }
 
 .content-formulario .img-lateral {
-    width: 48%;
+    width: 42%;
     display: inline-block;
     vertical-align: bottom;
 }
-
+.content-formulario .img-lateral img {
+    width: 100%;
+    max-width: 500px;
+    margin: 0 auto;
+    display: block;
+}
 .content-formulario .interna-body {
-    width: 50%;
+    width: 57%;
     display: inline-block;
     vertical-align: top;
 }
@@ -646,7 +675,7 @@ label {
 }
 .title-section {
     font-family: 'Carter One', cursive;
-    font-size: 3em;
+    font-size: 1.8em;
     text-align: left;
     color: #fff;
     margin: 15px;
@@ -689,8 +718,128 @@ a.volver:hover {
     background-color: transparent;
     border-radius: 5px;
     color: #005181;
-    border: 1px solid #005181;
+    border: 2px solid #005181;
     border-style: solid;
     display: block;
     margin: 0 auto;
+}
+/*****************************************************
+    RESPONSIVE
+*****************************************************/
+@media (max-width: 991px) {
+    /** Home  **/
+    .content-txt-slider {
+        width: 70%;
+        top: 20%;
+    }
+    .content-txt-slider h2 {
+        font-size: 2.2em;
+    }
+    .cont-img-sllider {
+        width: 60%;
+    }
+    .cont-img-sllider .img-banner2 {
+        max-width: 320px;
+    }
+    /** Login **/
+    .container {
+        margin-top: 90px;
+    }
+
+    /** Agendamiento **/
+    .content-formulario .img-lateral {
+        width: 100%;
+        max-width: 360px;
+        display: block;
+        margin: 70px auto 0;
+    }
+    
+    .content-formulario .interna-body {
+        width: 100%;
+        max-width: 670px;
+        margin: 0 auto 40px;
+        display: block;
+    }
+
+    .cont-header .nav {
+        position: relative;
+        display: block;
+        text-align: right;
+    }
+    .cont-header .nav .menu-superior {
+        position: relative;
+        top: -32px;
+        right: -15px;
+    }
+    
+    .table td, .table th {
+        font-size: 14px;
+    }
+}
+@media (max-width: 500px) {
+    /** Home  **/
+    .content-txt-slider {
+        width: 80%;
+    }
+    .content-txt-slider h2 {
+        font-size: 2em;
+    }
+    .cont-img-sllider {
+        width: 80%;
+    }
+    .cont-img-sllider .img-banner2 {
+        max-width: 320px;
+    }
+    /** Login **/
+    .login h2{
+        margin-bottom: 80px;
+    }
+    .nav .login .btn {
+        padding: 12px 34px 14px 8px;
+        background-size: 29px auto;
+        top: 14px;
+        background-position: 96% center;
+    }
+    /** Agendamiento **/
+    .btn-logout {
+        position: absolute;
+        left: 0;
+    }
+    .cont-header .nav .date-user .icon-user {
+        display: none;
+    }
+    .cont-header .nav .menu-superior {
+        top: -32px;
+        right: -15px;
+    }
+    .table td, .table th {
+        font-size: 12px;
+    }
+}
+@media (max-width: 380px) {
+    /** Home  **/
+    .content-txt-slider h2 {
+        font-size: 1.8em;
+    }
+    .cont-img-sllider .img-banner2 {
+        max-width: 290px;
+    }
+}
+
+@media (max-width: 330px) {
+    /** Home  **/
+    .content-txt-slider h2 {
+        font-size: 1.3em;
+        font-weight: 100;
+        letter-spacing: 1.3px;
+    }
+    .cont-img-sllider .img-banner2 {
+        max-width: 290px;
+    }
+    p.mns-error {
+        max-width: 170px;
+    }
+    .img-login{
+        right: -5px;
+    }
 }

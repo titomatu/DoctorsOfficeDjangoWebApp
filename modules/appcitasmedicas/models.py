@@ -45,7 +45,7 @@ class Cita(models.Model):
     fecha = models.DateField(default=timezone.now(), null= False)
     lista_cancela = [('S', 'Si'), ('N', 'No')]
     cancelada = models.CharField(max_length=1, null=False, choices=lista_cancela, default='N', blank=False)
-    hora_cancelada = models.TimeField(default=timezone.now(), blank=False)
+    hora_cancelada = models.TimeField(default='00:00:00', blank=False)
 
     def __str__(self):
         return f"{self.paciente} => {self.medico} => {self.fecha} => {self.hora}"

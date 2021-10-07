@@ -63,6 +63,7 @@
                 <img src="../static/img/img-banner-1.png" class="Iniciar Sesi{on" />
             </div>
             <div class="interna-body">
+                <p class="mns-error">{{mensaje}}</p>
                 <div class="cont-tabla">
                     <table id="Consultas-citas" class="table">
                         <thead class="thead-dark">
@@ -99,6 +100,9 @@
                             {% endif %}                                                        
                         </tbody>
                     </table>
+                    <div class="form-group">
+                        <label class="error">{{mensaje}}</label>
+                    </div>
                 </div>
             </div>
         </div>

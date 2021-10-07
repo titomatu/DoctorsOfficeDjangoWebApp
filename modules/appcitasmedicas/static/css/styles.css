@@ -533,7 +533,7 @@ ul.navbar-nav.mr-auto li.menu-item p {
 } 
 
 .box-name-user {
-    display: block;
+    display: inline-block;
 }
 
 .box-name-user p {
@@ -814,6 +814,10 @@ a.volver:hover {
     }
     .table td, .table th {
         font-size: 12px;
+    }
+    
+    .box-name-user {
+        display: inline-block;
     }
 }
 @media (max-width: 380px) {

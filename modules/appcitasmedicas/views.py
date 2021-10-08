@@ -48,8 +48,11 @@ def login(request):
     return render(request, 'login.html')
 
 def usuario(request):
+    paciente = Paciente.objects.get(id= request.session['id_paciente'])
 
-    return render(request, 'usuario.html')
+    context = {"paciente":paciente}
+
+    return render(request, 'usuario.html', context)
 
 def agendamiento(request):
     paciente = Paciente.objects.get(id= request.session['id_paciente'])
